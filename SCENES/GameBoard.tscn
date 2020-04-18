@@ -28,27 +28,56 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="CanvasLayer/Button"]
 
 [node name="PopupDialog" type="PopupDialog" parent="CanvasLayer"]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -90.0
-margin_top = -53.0
-margin_right = 90.0
-margin_bottom = 53.0
+margin_left = -164.0
+margin_top = -98.0
+margin_right = 164.0
+margin_bottom = 98.0
+popup_exclusive = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PopupDialogFailed" type="PopupDialog" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -90.0
-margin_top = -53.0
-margin_right = 90.0
-margin_bottom = 53.0
+[node name="Button" type="Button" parent="CanvasLayer/PopupDialog"]
+anchor_left = 0.498557
+anchor_top = 0.925103
+anchor_right = 0.498557
+anchor_bottom = 1.00163
+margin_left = -115.527
+margin_top = -32.3202
+margin_right = 113.473
+margin_bottom = -12.3202
+text = "CONTINUE"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 25.7115
+margin_top = 555.426
+margin_right = 80.7115
+margin_bottom = 569.426
+rect_scale = Vector2( 2, 2 )
+size_flags_vertical = 2
+text = "STATUS: "
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelInfectedCount" type="Label" parent="CanvasLayer"]
+margin_left = 135.24
+margin_top = 555.426
+margin_right = 190.24
+margin_bottom = 569.426
+rect_scale = Vector2( 2, 2 )
+size_flags_vertical = 2
+text = "XX"
+uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -56,3 +85,4 @@ __meta__ = {
 [connection signal="button_up" from="CanvasLayer/Button" to="." method="_on_Button_button_up"]
 [connection signal="quarantine_timeout" from="CanvasLayer/Button" to="." method="_on_Button_quarantine_timeout"]
 [connection signal="timeout" from="CanvasLayer/Button/Timer" to="CanvasLayer/Button" method="_on_Timer_timeout"]
+[connection signal="button_up" from="CanvasLayer/PopupDialog/Button" to="." method="_on_Popup_Button_button_up"]
