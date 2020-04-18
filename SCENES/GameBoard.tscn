@@ -52,6 +52,7 @@ margin_bottom = 53.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="button_up" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_Button_button_up"]
 [connection signal="button_up" from="CanvasLayer/Button" to="." method="_on_Button_button_up"]
 [connection signal="quarantine_timeout" from="CanvasLayer/Button" to="." method="_on_Button_quarantine_timeout"]
 [connection signal="timeout" from="CanvasLayer/Button/Timer" to="CanvasLayer/Button" method="_on_Timer_timeout"]

@@ -58,9 +58,20 @@ func spawn_card(is_evil, x, y):
 		card.set_evil()
 
 
+func validate_selected_cards():
+	var invalid_counter = 0
+	var cards = get_tree().\
+		get_current_scene().\
+		get_tree().\
+		get_nodes_in_group("cards")
+	#validate each
+	for i in cards.size() :
+		if not cards[i].validate():
+			invalid_counter += 1
+
+
 func _on_Button_button_up():
-	#get all evil cards not selected
-	
+	validate_selected_cards()
 	
 	#show pop up if success
 	$CanvasLayer/Button.disabled = true
@@ -68,4 +79,4 @@ func _on_Button_button_up():
 
 
 func _on_Button_quarantine_timeout():
-	pass # Replace with function body.
+	validate_selected_cards()
