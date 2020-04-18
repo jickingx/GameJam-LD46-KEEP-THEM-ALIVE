@@ -1,6 +1,57 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://SCENES/QuarantineButton.gd" type="Script" id=1]
 [ext_resource path="res://SCENES/GameBoard.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 535.938, 16.321 ],
+"_edit_vertical_guides_": [ 801.096, 19.5604 ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+margin_left = 503.0
+margin_top = 549.0
+margin_right = 651.0
+margin_bottom = 569.0
+rect_scale = Vector2( 2.04549, 2.04549 )
+text = "QUARANTINE"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Button"]
+
+[node name="PopupDialog" type="PopupDialog" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -53.0
+margin_right = 90.0
+margin_bottom = 53.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupDialogFailed" type="PopupDialog" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -53.0
+margin_right = 90.0
+margin_bottom = 53.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="CanvasLayer/Button" to="." method="_on_Button_button_up"]
+[connection signal="quarantine_timeout" from="CanvasLayer/Button" to="." method="_on_Button_quarantine_timeout"]
+[connection signal="timeout" from="CanvasLayer/Button/Timer" to="CanvasLayer/Button" method="_on_Timer_timeout"]

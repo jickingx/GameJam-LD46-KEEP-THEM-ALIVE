@@ -17,7 +17,19 @@ _global_script_class_icons={
 
 config/name="Keep Them Alive"
 run/main_scene="res://SCENES/GameBoard.tscn"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
+
+[display]
+
+window/size/width=820
+window/size/resizable=false
+window/stretch/aspect="keep"
 
 [rendering]
 
