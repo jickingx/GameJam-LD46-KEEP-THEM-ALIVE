@@ -22,18 +22,16 @@ func _ready():
 
 func spawn_cards_to_board():
 	#set board margin & padding
-	var max_cards_h = 4
+	var max_cards_h = 6
 	var max_cards_v = 4
 	
 	
 	for i in max_cards_v:
-		var counter_y = i + 1;
-		var y = MARGIN + (counter_y * GRID_SIZE) + (counter_y * PADDING) 
+		var y = MARGIN + (GRID_SIZE / 2)  + (i * GRID_SIZE) + (i * PADDING) 
 		print_debug("y: " + str(y))
 		#SPAWN IN X
 		for i in max_cards_h:
-			var counter_x = i + 1;
-			var x = MARGIN + (counter_x * GRID_SIZE) + (counter_x * PADDING)
+			var x = MARGIN + (GRID_SIZE / 2)  + (i * GRID_SIZE) + (i * PADDING)
 			print_debug("x: " + str(x))
 			spawn_card(true, x, y)
 	pass
