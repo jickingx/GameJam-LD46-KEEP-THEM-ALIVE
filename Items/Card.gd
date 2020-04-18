@@ -1,15 +1,24 @@
 extends Area2D
 
-var card_name
-var card_face
-var card_back
-var click_enabled : bool
+var is_evil : bool
 var is_selected : bool
 
-func _ready():
-	pass # Replace with function body.
+func set_evil():
+	is_evil = true
+	$AnimatedSprite.animation = "default_evil"
 
+func _on_Card_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton \
+	and event.button_index == BUTTON_LEFT \
+	and event.is_pressed():
+		self.on_click()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func on_click():
+	is_selected = !is_selected
+	if is_selected :
+		$AnimatedSprite.animation = "selected"
+	else:
+		if is_evil:
+			$AnimatedSprite.animation = "default_evil"
+		else :
+			$AnimatedSprite.animation = "default"
