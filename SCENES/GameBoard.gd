@@ -15,6 +15,7 @@ var max_evil_card = Global.evil_card_count
 func _ready():
 	spawn_cards_to_board()
 	$CanvasLayer/LabelInfectedCount.text = str(max_evil_card)
+	$AudioStreamPlayer2D.play()
 
 
 func _on_Button_button_up():
@@ -92,16 +93,17 @@ func process_results():
 	
 	if validate_selected_cards() :
 		Global.evil_card_count -= 1
-		$CanvasLayer/PopupDialog/Label.text = "SUCCESS"
+		$CanvasLayer/PopupDialog/Label.text = "GOOD CATCH !!!"
 	else:
-		Global.evil_card_count += Global.evil_card_count / 2
-		$CanvasLayer/PopupDialog/Label.text = "SOMETHING WEN'T WRONG"
+		Global.evil_card_count += Global.evil_card_count
+		$CanvasLayer/PopupDialog/Label.text = "OOOPS, THAT'S BAD"
 	
 	if Global.evil_card_count <= 0 || Global.evil_card_count >= (max_cards_h * max_cards_v):
 		get_tree().change_scene("res://SCENES/End.tscn")
 	
 	#show pop up if success
 	$CanvasLayer/Button.disabled = true
+	$AudioStreamPlayer2DBlip.play()
 	$CanvasLayer/PopupDialog.popup()
 
 

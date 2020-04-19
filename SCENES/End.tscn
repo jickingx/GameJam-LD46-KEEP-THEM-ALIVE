@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://SCENES/End.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/MainFont.tres" type="DynamicFont" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://_assets_raw/intro-003-01.png" type="Texture" id=4]
 [ext_resource path="res://_assets_raw/intro-002-00.png" type="Texture" id=5]
 [ext_resource path="res://_assets_raw/intro-002-01.png" type="Texture" id=6]
+[ext_resource path="res://Sound/BeepBox-Song2.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sound/WIN.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sound/LOSE.wav" type="AudioStream" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -53,6 +56,15 @@ autostart = true
 position = Vector2( 403.516, 259.317 )
 frames = SubResource( 1 )
 animation = "1"
-frame = 1
 playing = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+
+[node name="AudioStreamPlayer2DWIN" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="AudioStreamPlayer2DLose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

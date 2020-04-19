@@ -20,6 +20,7 @@ func _on_Card_input_event(viewport, event, shape_idx):
 func on_click():
 	if is_disabled :
 		return
+	$AudioStreamPlayer2D.play()
 	
 	is_selected = !is_selected
 	if is_selected :

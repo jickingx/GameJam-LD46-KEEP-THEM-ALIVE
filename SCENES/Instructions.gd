@@ -23,6 +23,7 @@ func _ready():
 	update_labels(counter)
 
 func _on_Button_button_up():
+	$AudioStreamPlayer2DBlip.play()
 	counter += 1
 	if messages.size() <= counter :
 		get_tree().change_scene("res://SCENES/GameBoard.tscn")
