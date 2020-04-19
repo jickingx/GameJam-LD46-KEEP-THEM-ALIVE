@@ -39,7 +39,6 @@ func spawn_cards_to_board():
 		var y = calculate_position(i)
 		for i in max_cards_h:
 			var x = calculate_position(i)
-			#todo set random set
 			var is_evil = false 
 			if card_counter in evil_card_indices:
 				is_evil = true 
@@ -90,10 +89,13 @@ func validate_selected_cards():
 
 
 func process_results():
+	
 	if validate_selected_cards() :
 		Global.evil_card_count -= 1
+		$CanvasLayer/PopupDialog/Label.text = "SUCCESS"
 	else:
 		Global.evil_card_count += Global.evil_card_count / 2
+		$CanvasLayer/PopupDialog/Label.text = "SOMETHING WEN'T WRONG"
 	
 	if Global.evil_card_count <= 0 || Global.evil_card_count >= (max_cards_h * max_cards_v):
 		get_tree().change_scene("res://SCENES/End.tscn")

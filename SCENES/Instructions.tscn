@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Fonts/MainFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://_assets_raw/intro-00.png" type="Texture" id=2]
+[ext_resource path="res://_assets_raw/intro-01.png" type="Texture" id=3]
+[ext_resource path="res://SCENES/Instructions.gd" type="Script" id=4]
+[ext_resource path="res://_assets_raw/intro-002-00.png" type="Texture" id=5]
+[ext_resource path="res://_assets_raw/intro-002-01.png" type="Texture" id=6]
+[ext_resource path="res://_assets_raw/intro-001-01.png" type="Texture" id=7]
+[ext_resource path="res://_assets_raw/intro-001-00.png" type="Texture" id=8]
+[ext_resource path="res://_assets_raw/intro-003-01.png" type="Texture" id=9]
+[ext_resource path="res://_assets_raw/intro-003-00.png" type="Texture" id=10]
+[ext_resource path="res://_assets_raw/intro-004-00.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -353.0
+margin_top = 67.0
+margin_right = 2.0
+margin_bottom = 140.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]FUUUK? [/center][center]FUUUK? [/center][center]FUUUK? [/center]"
+text = "FUUUK? FUUUK? FUUUK? "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchor_left = 0.274073
+anchor_top = 0.923242
+anchor_right = 0.772073
+anchor_bottom = 0.923242
+margin_left = 0.259995
+margin_top = -35.0
+margin_right = -204.1
+margin_bottom = -0.0240479
+rect_scale = Vector2( 2, 2 )
+text = "NEXT"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 398.9, 215.897 )
+frames = SubResource( 1 )
+animation = "4"
+playing = true
+__meta__ = {
+"_edit_group_": true
+}
+[connection signal="button_up" from="CanvasLayer/Button" to="." method="_on_Button_button_up"]

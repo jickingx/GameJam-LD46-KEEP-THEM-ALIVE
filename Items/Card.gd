@@ -4,9 +4,12 @@ var is_disabled : bool
 var is_evil : bool
 var is_selected : bool
 
+func _ready():
+	$AnimatedSprite.play("default")
+
 func set_evil():
 	is_evil = true
-	$AnimatedSprite.animation = "default_evil"
+	$AnimatedSprite.play("default_evil")
 
 func _on_Card_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
@@ -20,18 +23,18 @@ func on_click():
 	
 	is_selected = !is_selected
 	if is_selected :
-		$AnimatedSprite.animation = "selected"
+		$AnimatedSprite.play("selected")
 	else:
 		if is_evil:
-			$AnimatedSprite.animation = "default_evil"
+			$AnimatedSprite.play("default_evil")
 		else :
-			$AnimatedSprite.animation = "default"
+			$AnimatedSprite.play("default")
 
 func validate() -> bool :
 	is_disabled = true
 	if (!is_evil && !is_selected) || (is_evil && is_selected):
 		return true
 	
-	$AnimatedSprite.animation = "dead"
+	$AnimatedSprite.play("dead")
 	return false
 	

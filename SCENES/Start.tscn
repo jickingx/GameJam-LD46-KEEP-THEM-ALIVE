@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/MainFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://SCENES/Start.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+antialiased = false
+font_path = "res://Fonts/kenpixel_blocks.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = SubResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( -24.6065, -10.2527 )
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer"]
+margin_left = 280.344
+margin_top = 533.312
+margin_right = 400.344
+margin_bottom = 553.312
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 1 )
+text = "@JICKINGX 2020"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTitle" type="Label" parent="CanvasLayer"]
+margin_left = 49.971
+margin_top = 155.34
+margin_right = 769.971
+margin_bottom = 251.34
+custom_fonts/font = SubResource( 2 )
+text = "KEEP THEM ALIVE !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelLD" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -129.156
+margin_top = -345.066
+margin_right = -11.1556
+margin_bottom = -325.066
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 1 )
+text = "Ludum Dare 46"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonStart" type="Button" parent="CanvasLayer"]
+anchor_left = -0.0385077
+anchor_top = -0.00574528
+anchor_right = -0.0385077
+anchor_bottom = -0.00574528
+margin_left = 375.272
+margin_top = 359.879
+margin_right = 433.272
+margin_bottom = 385.879
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 1 )
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="CanvasLayer/ButtonStart" to="." method="_on_ButtonStart_button_up"]

@@ -1,31 +1,35 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Items/Card.gd" type="Script" id=1]
 [ext_resource path="res://_assets_raw/card-good-00.png" type="Texture" id=2]
 [ext_resource path="res://_assets_raw/card-selected-00.png" type="Texture" id=3]
 [ext_resource path="res://_assets_raw/card-evil-00.png" type="Texture" id=4]
 [ext_resource path="res://_assets_raw/card-dead-00.png" type="Texture" id=5]
+[ext_resource path="res://_assets_raw/card-evil-01.png" type="Texture" id=6]
+[ext_resource path="res://_assets_raw/card-good-01.png" type="Texture" id=7]
+[ext_resource path="res://_assets_raw/card-selected-01.png" type="Texture" id=8]
+[ext_resource path="res://_assets_raw/card-dead-01.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "selected",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "default_evil",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default_evil",
 "speed": 5.0
 } ]
 
